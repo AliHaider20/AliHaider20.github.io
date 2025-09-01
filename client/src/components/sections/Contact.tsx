@@ -277,7 +277,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-6 py-3 bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 rounded-md transition duration-300 font-medium disabled:opacity-70"
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 rounded-md transition duration-300 font-medium disabled:opacity-70"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
