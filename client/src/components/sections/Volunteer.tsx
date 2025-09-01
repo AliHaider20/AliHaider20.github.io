@@ -37,7 +37,6 @@ export default function Volunteer() {
                 <p className="text-accent font-medium">
                   {exp.startDate} – {exp.endDate}
                 </p>
-                <p className="text-gray-600">{exp.location}</p>
               </div>
               <div>
                 <ul className="space-y-2 text-gray-700">
@@ -85,7 +84,6 @@ export default function Volunteer() {
                   <p className="text-accent font-medium">
                     {resumeData.volunteerExperiences[2].startDate} – {resumeData.volunteerExperiences[2].endDate}
                   </p>
-                  <p className="text-gray-600">{resumeData.volunteerExperiences[2].location}</p>
                 </div>
                 <div>
                   <ul className="space-y-2 text-gray-700">

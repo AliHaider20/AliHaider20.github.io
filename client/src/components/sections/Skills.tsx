@@ -65,7 +65,7 @@ export default function Skills() {
             {resumeData.focusAreas.map((area, index) => (
               <motion.span
                 key={index}
-                className="px-6 py-3 bg-gray-100 text-black border-2 border-gray-300 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-200"
+                className="px-6 py-3 bg-slate-800 text-white border-2 border-slate-700 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-slate-700"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4, delay: 0.9 + 0.1 * index }}

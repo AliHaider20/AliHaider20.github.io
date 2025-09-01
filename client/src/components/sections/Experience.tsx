@@ -41,7 +41,6 @@ export default function Experience() {
                   <p className="text-accent font-medium">
                     {exp.startDate} – {exp.endDate}
                   </p>
-                  <p className="text-gray-600">{exp.location}</p>
                 </div>
               </div>
               <div className="mt-4">

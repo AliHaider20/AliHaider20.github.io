@@ -107,7 +107,24 @@ export default function Contact() {
                   </div>
                 </div>
 
-
+                <div className="flex items-start">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-accent mt-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <div className="ml-4">
+                    <p className="font-medium text-primary">Location</p>
+                    <p className="text-gray-700">{resumeData.location}</p>
+                  </div>
+                </div>
               </div>
 
               <div className="mt-8">
@@ -277,7 +294,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 rounded-md transition duration-300 font-medium disabled:opacity-70"
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 rounded-md transition duration-300 font-medium disabled:opacity-70 shadow-lg"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
