@@ -51,6 +51,11 @@ export interface VolunteerExperience {
   description: string[];
 }
 
+export interface SkillCategory {
+  category: string;
+  skills: string[];
+}
+
 export interface ResumeData {
   name: string;
   title: string;
@@ -69,6 +74,7 @@ export interface ResumeData {
   achievements: Achievement[];
   technicalSkills: TechnicalSkill[];
   focusAreas: string[];
+  skillCategories: SkillCategory[];
 }
 
 const resumeData: ResumeData = {
