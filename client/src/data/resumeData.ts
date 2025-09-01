@@ -387,7 +387,6 @@ const resumeData: ResumeData = {
         "PostgreSQL",
         "MySQL",
         "MongoDB",
-        "Redis",
         "Apache Cassandra",
         "Elasticsearch",
         "ETL Pipelines",
