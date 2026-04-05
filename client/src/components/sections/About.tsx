@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 px-6 bg-slate-100"
+      className="py-20 px-6 bg-white"
       ref={ref} 
     >
       <div className="container mx-auto">
@@ -20,9 +20,9 @@ export default function About() {
         >
           About Me
         </motion.h2>
-        <div className="flex flex-col md:flex-row gap-12">
+        <div className="flex flex-col gap-12">
           <motion.div
-            className="md:w-2/3"
+            className="w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
@@ -61,27 +61,6 @@ export default function About() {
                   <li key={index}>{achievement.title}</li>
                 ))}
               </ul>
-            </div>
-          </motion.div>
-          <motion.div
-            className="md:w-1/3 flex flex-col gap-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          >
-
-            <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-              <h3 className="text-xl font-semibold mb-4 text-primary">Focus Areas</h3>
-              <div className="flex flex-wrap gap-2">
-                {resumeData.focusAreas.map((area, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-blue-100 text-secondary rounded-full text-sm"
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
             </div>
           </motion.div>
         </div>

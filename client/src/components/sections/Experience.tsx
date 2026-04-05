@@ -8,7 +8,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-20 px-6 bg-slate-200"
+      className="py-20 px-6 bg-slate-50"
       ref={ref}
     >
       <div className="container mx-auto">

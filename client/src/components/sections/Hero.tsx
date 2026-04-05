@@ -34,10 +34,20 @@ export default function Hero() {
             <p className="text-xl md:text-2xl mb-6 text-white/85 font-light">
               {resumeData.subtitle}
             </p>
-            <blockquote className="italic text-lg md:text-xl border-l-4 border-white/80 pl-4 mb-8 text-white/90 backdrop-blur-sm bg-white/5 p-4 rounded-r-md shadow-sm">
-              "Building AI that empowers humanity, solves our greatest
-              challenges, and leaves the world better than I found it."
-            </blockquote>
+            <div className="flex flex-wrap gap-3 mb-8">
+              <span className="px-3 py-1.5 bg-white/15 border border-white/30 rounded-md text-sm text-white/90 font-medium">
+                MS in Artificial Intelligence
+              </span>
+              <span className="px-3 py-1.5 bg-white/15 border border-white/30 rounded-md text-sm text-white/90 font-medium">
+                Austin, TX
+              </span>
+              <span className="px-3 py-1.5 bg-white/15 border border-white/30 rounded-md text-sm text-white/90 font-medium">
+                S&P Global
+              </span>
+              <span className="px-3 py-1.5 bg-white/15 border border-white/30 rounded-md text-sm text-white/90 font-medium">
+                Kan Innovations
+              </span>
+            </div>
             <div className="flex flex-wrap gap-4">
               <a
                 href="#projects"
