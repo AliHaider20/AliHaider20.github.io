@@ -1,7 +1,7 @@
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import resumeData from "@/data/resumeData";
 import { motion } from "framer-motion";
-import profilePhoto from "@assets/image_1743818166760.png";
+import profilePhoto from "@assets/headshot.jpeg";
 
 export default function Hero() {
   const [ref, isVisible] = useIntersectionObserver<HTMLDivElement>();

@@ -208,3 +208,4 @@ __marimo__/
 
 # Stores
 .DS_Store
+node_modules

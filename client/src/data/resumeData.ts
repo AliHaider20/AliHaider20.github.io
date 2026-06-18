@@ -61,7 +61,6 @@ export interface ResumeData {
   title: string;
   subtitle: string;
   email: string;
-  phone: string;
   location: string;
   linkedInUrl: string;
   githubUrl: string;
@@ -83,8 +82,7 @@ const resumeData: ResumeData = {
   subtitle:
     "Specialized in Machine Learning, Computer Vision, and Generative AI applications",
   email: "Hali4@mail.yu.edu",
-  phone: "(551) 344-4769",
-  location: "Austin, TX 78703",
+  location: "Fairfax, VA - 22032",
   linkedInUrl: "https://www.linkedin.com/in/haiderzali/",
   githubUrl: "https://github.com/AliHaider20",
   orcidUrl: "https://orcid.org/0009-0007-4469-0460",
@@ -102,6 +100,20 @@ const resumeData: ResumeData = {
         "Statistics and Probability",
         "Machine Learning",
         "Generative AI",
+      ],
+    },
+    {
+      institution: "Mumbai University",
+      degree: "Bachelor of Science",
+      fieldOfStudy: "Computer Science, Specialization in AI",
+      startDate: "",
+      endDate: "May 2021",
+      coursework: [
+        "Data Structures & Algorithms",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Database Management",
+        "Computer Vision",
       ],
     },
   ],
@@ -134,6 +146,20 @@ const resumeData: ResumeData = {
     },
   ],
   projects: [
+    {
+      title: "Email Promotions AI Agent",
+      date: "May 2025 - Present",
+      category: "Generative AI | Agentic AI",
+      description:
+        "Autonomous AI agent that monitors email inbox for promotional content and intelligently notifies users about relevant deals based on their preferences.",
+      details: [
+        "Built an agentic pipeline that continuously fetches and parses promotional emails using Python email APIs",
+        "Integrated LLM-based classification to rank and filter deals against user-defined preference profiles",
+        "Implemented preference-aware notification system ensuring users never miss high-value promotions",
+      ],
+      technologies: ["Python", "AI Agents", "LLM", "Email API", "NLP"],
+      githubLink: "https://github.com/AliHaider20/Email-promotions-Agent",
+    },
     {
       title: "Advanced LLM Conversational Chatbot System",
       date: "Feb - Sept 2023",
@@ -249,7 +275,7 @@ const resumeData: ResumeData = {
         "Feature Selection",
         "Healthcare Analytics",
       ],
-      githubLink: "https://github.com/AliHaider20/Medical-Expenses-Predictionm",
+      githubLink: "https://github.com/AliHaider20/Medical-Expenses-Prediction",
     },
     {
       title: "Income VS Crime in NYC",
