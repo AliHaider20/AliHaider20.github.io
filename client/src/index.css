@@ -88,6 +88,11 @@
   background-size: 150px 30px, 150px 30px, 800px 800px, 600px 600px;
 }
 
+/* Dark mode CSS variable overrides */
+.dark .text-primary {
+  color: #E2E8F0;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -95,14 +100,14 @@
 
   body {
     @apply font-sans antialiased text-foreground;
-    background: linear-gradient(135deg, 
-      #1e293b 0%, 
-      #334155 15%, 
-      #475569 30%, 
-      #334155 45%, 
-      #1e293b 60%, 
-      #475569 75%, 
-      #334155 90%, 
+    background: linear-gradient(135deg,
+      #1e293b 0%,
+      #334155 15%,
+      #475569 30%,
+      #334155 45%,
+      #1e293b 60%,
+      #475569 75%,
+      #334155 90%,
       #1e293b 100%
     );
     background-size: 400% 400%;

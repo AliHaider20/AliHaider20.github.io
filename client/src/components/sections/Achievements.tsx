@@ -6,14 +6,10 @@ export default function Achievements() {
   const [ref, isVisible] = useIntersectionObserver<HTMLDivElement>();
 
   return (
-    <section
-      id="achievements"
-      className="py-20 px-6 bg-slate-200"
-      ref={ref}
-    >
+    <section id="achievements" className="py-20 px-6 bg-slate-200 dark:bg-slate-800" ref={ref}>
       <div className="container mx-auto">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-12 text-primary"
+          className="text-3xl md:text-4xl font-bold mb-12 text-primary dark:text-gray-100"
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -25,27 +21,18 @@ export default function Achievements() {
           {resumeData.achievements.map((achievement, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg p-6 shadow-md border-l-4 border-accent hover:shadow-lg transition-all duration-300"
+              className="bg-white dark:bg-slate-700 rounded-lg p-6 shadow-md border-l-4 border-accent hover:shadow-lg transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.1 * index, ease: "easeOut" }}
             >
               <div className="flex items-start">
-                <span className="text-accent mr-4 mt-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
+                <span className="text-accent mr-4 mt-1 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                 </span>
-                <h3 className="text-lg font-semibold text-primary">{achievement.title}</h3>
+                <h3 className="text-base font-semibold text-primary dark:text-gray-100">{achievement.title}</h3>
               </div>
             </motion.div>
           ))}

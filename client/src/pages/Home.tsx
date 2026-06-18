@@ -7,9 +7,9 @@ import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
+import Publications from "@/components/sections/Publications";
 import Volunteer from "@/components/sections/Volunteer";
 import Achievements from "@/components/sections/Achievements";
-import Contact from "@/components/sections/Contact";
 import resumeData from "@/data/resumeData";
 
 export default function Home() {
@@ -33,7 +33,11 @@ export default function Home() {
               --background: #FFFFFF;
               --text: #333333;
               --accent: #00C7B7;
-              --font-sans: 'Inter', sans-serif;
+            }
+            .dark {
+              --primary: #E2E8F0;
+              --secondary: #60A5FA;
+              --accent: #2DD4BF;
             }
           `}
         </style>
@@ -41,18 +45,18 @@ export default function Home() {
 
       <div className="bg-background text-text font-sans min-h-screen">
         <Navbar />
-        
+
         <main>
           <Hero />
           <About />
           <Experience />
           <Projects />
           <Skills />
+          <Publications />
           <Volunteer />
           <Achievements />
-          <Contact />
         </main>
-        
+
         <Footer />
       </div>
     </>

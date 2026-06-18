@@ -30,6 +30,22 @@ export interface Achievement {
   title: string;
 }
 
+export interface Certification {
+  name: string;
+  issuer: string;
+  date: string;
+  credentialUrl?: string;
+}
+
+export interface Publication {
+  title: string;
+  journal: string;
+  year: string;
+  doiLink?: string;
+  summary: string;
+  tags: string[];
+}
+
 export interface Skill {
   name: string;
   percentage: number;
@@ -71,6 +87,8 @@ export interface ResumeData {
   projects: Project[];
   volunteerExperiences: VolunteerExperience[];
   achievements: Achievement[];
+  certifications: Certification[];
+  publications: Publication[];
   technicalSkills: TechnicalSkill[];
   skillCategories: SkillCategory[];
 }
@@ -91,7 +109,7 @@ const resumeData: ResumeData = {
       institution: "Yeshiva University",
       degree: "Master of Science",
       fieldOfStudy: "Artificial Intelligence",
-      startDate: "",
+      startDate: "August 2022",
       endDate: "May 2024",
       coursework: [
         "Numerical Analysis",
@@ -105,7 +123,7 @@ const resumeData: ResumeData = {
       institution: "Mumbai University",
       degree: "Bachelor of Science",
       fieldOfStudy: "Computer Science, Specialization in AI",
-      startDate: "",
+      startDate: "August 2017",
       endDate: "May 2021",
       coursework: [
         "Data Structures & Algorithms",
@@ -118,16 +136,28 @@ const resumeData: ResumeData = {
   ],
   experience: [
     {
+      company: "Credo Health",
+      position: "Machine Learning Engineer",
+      location: "Austin, TX",
+      startDate: "June 2024",
+      endDate: "February 2026",
+      description: [
+        "Built a hybrid re-ranking RAG pipeline serving concurrent multi-user clinical queries with real-time document ingestion",
+        "Reduced LLM prompt tokens by 30% via hash-based deduplication, lowering per-query inference cost at scale",
+        "Deployed an agentic chatbot framework achieving 96% accuracy, validated across thousands of QA test cases",
+        "Designed a multi-judge LLM eval framework running automated quality assessments across all production agent outputs",
+      ],
+    },
+    {
       company: "S&P Global",
       position: "Machine Learning Joint Research Project",
-      location: "NY, NY",
+      location: "NYC, NY",
       startDate: "May 2023",
       endDate: "August 2023",
       description: [
         "Scraped, engineered, and extracted relevant features of Global Precipitation Data from NASA's GDDP (HDF) files using R",
-        "Employed Morphological image analysis, and employed KNN and CNN for feature extraction",
+        "Employed predictive modeling using features from KNN and CNN after morphological image analysis",
         "Evaluated multiple super-resolution models; ESRGAN maintained 80% image quality while enhancing resolution",
-        "Utilized AWS for MLOps orchestration to deploy the model, focusing on scalability and maintainability, and enabling ongoing monitoring through integrated MLFlow",
       ],
     },
     {
@@ -135,9 +165,9 @@ const resumeData: ResumeData = {
       position: "Machine Learning Engineer",
       location: "Mumbai, India",
       startDate: "January 2022",
-      endDate: "July 2022",
+      endDate: "February 2023",
       description: [
-        "Crafted a large image dataset by scraping foot images, merging pressure mat data, and employed Pix2Pix GAN augmentation",
+        "Developed foot imagery dataset using scrapers and pressure mat data, processed with Pix2Pix GANs",
         "Leveraged DenseNet121, DeepLabV3+, and custom segmentation model to estimate the pressure points in a foot",
         "Constructed 3D voxel foot meshes using Open3D library and Blender to help design insoles, reduced 40% foot deformity",
         "Implemented BlazePose model for real-time pose estimation, enhancing gaming interaction reducing 20% foot deformity",
@@ -145,6 +175,20 @@ const resumeData: ResumeData = {
     },
   ],
   projects: [
+    {
+      title: "Credit Card Assistant Agent",
+      date: "February 2025",
+      category: "Generative AI | Agentic AI",
+      description:
+        "Agentic AI chatbot using Semantic Kernel with tool-calling for card operations and document Q&A, featuring a fully grounded RAG pipeline.",
+      details: [
+        "Developed agentic AI chatbot using Semantic Kernel with tool-calling for card operations and document Q&A",
+        "Built RAG pipeline ingesting PDFs, chunking via LangChain, and indexing with FAISS for grounded responses",
+        "Built reusable tool/skill abstractions with clear input/output interfaces for card operations and document retrieval",
+      ],
+      technologies: ["Semantic Kernel", "LangChain", "FAISS", "RAG", "Python", "Prompt Engineering"],
+      githubLink: "https://github.com/AliHaider20/Semantic-kernel-card-assist-agent",
+    },
     {
       title: "Email Promotions AI Agent",
       date: "May 2025 - Present",
@@ -160,26 +204,27 @@ const resumeData: ResumeData = {
       githubLink: "https://github.com/AliHaider20/Email-promotions-Agent",
     },
     {
-      title: "Advanced LLM Conversational Chatbot System",
-      date: "Feb - Sept 2023",
+      title: "University Chatbot using LLM (KatzBot)",
+      date: "December 2023",
       category: "Generative AI | Large Language Models",
       description:
-        "Developed a comprehensive LLM-based conversational system with both general and university-specific capabilities, achieving high accuracy for diverse user queries.",
+        "Pre-trained and fine-tuned a custom SLM for university-specific Q&A, generating a 60K synthetic dataset and achieving 70% RougeL score. Published as a peer-reviewed paper.",
       details: [
-        "Generated 66,000 question-answer pairs using data pipelines (Apache Cassandra, Astra DB, Langchain, ChatGPT API) and NLPAug from PDFs and manual creation, with rigorous quality checks",
-        "Applied and compared multiple LLMs including Microsoft's Phi 1.5B, Flan T5, GPT-2, and Mistral 7B with Mistral achieving up to 70% RougeL score",
-        "Compressed Mistral Instruct model with DeepSparse for faster inference and optimized deployment",
-        "Deployed models on local servers with RAG pipeline implementation using Langchain and FAISS for efficient retrieval",
+        "Scraped and synthetically generated 60K question-answer pairs using the NLPAug tool, BERT, and GPT models",
+        "Fine-tuned Phi 1.5B, Flan T5, GPT-2, and Mistral models using FSDP, QLoRA, SFT, and GRPO achieving 70% RougeL score",
+        "Instruction trained and deployed a custom SLM on local server using Streamlit and FastAPI",
       ],
       technologies: [
         "LLM",
-        "Langchain",
-        "ChatGPT",
+        "QLoRA",
+        "FSDP",
+        "SFT",
+        "GRPO",
         "RAG",
         "FAISS",
         "Mistral",
-        "GPT",
-        "BERT",
+        "FastAPI",
+        "Streamlit",
       ],
       githubLink: "https://github.com/AliHaider20/KatzBot-LLM",
     },
@@ -254,7 +299,7 @@ const resumeData: ResumeData = {
         "Computer Vision",
         "Face Recognition",
       ],
-      githubLink: "https://github.com",
+      githubLink: "",
     },
     {
       title: "Medical Expense Prediction",
@@ -313,7 +358,7 @@ const resumeData: ResumeData = {
         "Ensemble Learning",
         "SMOTE",
       ],
-      githubLink: "https://github.com",
+      githubLink: "",
     },
     {
       title: "Optimizing Stewart Platform",
@@ -345,95 +390,98 @@ const resumeData: ResumeData = {
         "Gold Medalist in GreyAtom's Data Science Competition among 100 participants",
     },
   ],
+  certifications: [
+    // Add your certifications here, e.g.:
+    // { name: "AWS Certified Machine Learning Specialty", issuer: "Amazon Web Services", date: "2024", credentialUrl: "https://..." },
+    // { name: "TensorFlow Developer Certificate", issuer: "Google", date: "2023", credentialUrl: "https://..." },
+  ],
+  publications: [
+    {
+      title:
+        "KatzBot: Revolutionizing Academic Chatbot for Enhanced Communication",
+      journal: "Peer-Reviewed Research Paper",
+      year: "May 2024",
+      doiLink: "https://www.researchgate.net/publication/384906751_KatzBot_Revolutionizing_Academic_Chatbot_for_Enhanced_Communication",
+      summary:
+        "Designed and deployed KatzBot, a university-specific conversational AI system. Synthetically generated 60K+ QA pairs using NLPAug, BERT, and GPT models. Fine-tuned Phi 1.5B, Flan T5, GPT-2, and Mistral 7B using FSDP, QLoRA, SFT, and GRPO, achieving 70% RougeL score on domain-specific queries.",
+      tags: ["LLM", "RAG", "Fine-tuning", "QLoRA", "NLP", "Chatbot"],
+    },
+    {
+      title:
+        "Cow Teat Keratosis Classification: Data Augmentation Using Stable Diffusion for Imbalanced Biological Dataset",
+      journal: "Peer-Reviewed Research Paper",
+      year: "May 2023",
+      doiLink:
+        "https://github.com/AliHaider20/Cow-Teat-Keratosis-Aug-Stable-Diffusion",
+      summary:
+        "Benchmarked SOTA vision models (ResNets, VisionTransformer, GoogleNet, Inception, Meta-models) on balanced vs imbalanced datasets. Generated 500 synthetic images using Stable Diffusion to balance minority classes, achieving 85% accuracy with GoogleNet on balanced data — a 10% improvement over the baseline.",
+      tags: [
+        "Computer Vision",
+        "Stable Diffusion",
+        "Generative AI",
+        "Healthcare AI",
+        "CNN",
+        "Data Augmentation",
+      ],
+    },
+  ],
   skillCategories: [
     {
-      category: "Programming Languages",
+      category: "Programming & Tools",
       skills: [
         "Python",
-        "R",
-        "SQL",
-        "C/C++",
-        "JavaScript",
-        "MATLAB",
-        "Bash/Shell",
-      ],
-    },
-    {
-      category: "Machine Learning & AI",
-      skills: [
-        "Deep Learning",
-        "Computer Vision",
-        "Natural Language Processing",
-        "Large Language Models",
-        "LLM inference optimization",
-        "Generative AI",
-        "Reinforcement Learning",
-        "Time Series Analysis",
-        "Statistical Modeling",
-        "Feature Engineering",
-        "Model Optimization",
-      ],
-    },
-    {
-      category: "ML Frameworks & Libraries",
-      skills: [
         "PyTorch",
-        "Scikit-learn",
-        "Hugging Face",
-        "OpenCV",
-        "NLTK",
-        "spaCy",
-        "XGBoost",
-        "LightGBM",
-        "CatBoost",
-        "Pandas",
-        "NumPy",
-        "Matplotlib",
-        "Seaborn",
-        "Plotly"
-      ],
-    },
-    {
-      category: "Cloud & Infrastructure",
-      skills: [
-        "AWS (EC2, SageMaker)",
-        "Google Cloud Platform",
+        "Semantic Kernel",
+        "FastAPI",
         "Docker",
-        "Kubernetes",
-        "MLflow",
-        "Git/GitHub",
-        "CI/CD Pipelines",
-      ],
-    },
-    {
-      category: "Databases & Data Engineering",
-      skills: [
-        "PostgreSQL",
+        "JAX",
+        "Git",
         "MySQL",
-        "MongoDB",
-        "Apache Cassandra",
-        "Elasticsearch",
+        "PostgreSQL",
+        "HuggingFace",
+        "C++",
       ],
     },
     {
-      category: "Specialized AI Tools",
+      category: "Cloud & Data",
       skills: [
-        "Langchain",
-        "LlamaIndex",
+        "GCP",
+        "Vertex AI",
+        "Azure",
+        "Plotly",
+        "Vector DBs",
+        "Scikit-learn",
+        "Pandas",
+        "Matplotlib",
+        "CI/CD",
+        "LangChain",
         "FAISS",
-        "Pinecone",
-        "Weights & Biases",
-        "Stable Diffusion",
-        "BERT",
-        "GPT Models",
-        "RAG Systems",
-        "Vector Databases",
+        "EMR",
+      ],
+    },
+    {
+      category: "ML / AI",
+      skills: [
+        "LLMs (GPT, BERT, OpenAI, Gemini)",
+        "RAG",
+        "Prompt & Context Engineering",
+        "NLP",
+        "Computer Vision",
+        "Generative AI (Stable Diffusion, GAN)",
+        "XGBoost",
         "ONNX",
-        "TensorRT",
-        "DeepSpeed",
-        "Gradio",
-        "Streamlit",
-        "VLLM"
+        "FlashAttention",
+        "LLM Fine-tuning (QLoRA, SFT)",
+        "Vector Search",
+        "Tool Calling",
+        "Model Evaluations",
+        "MLflow",
+        "Transformers",
+        "MLOps",
+        "vLLM",
+        "FSDP",
+        "Langsmith",
+        "Pydantic",
       ],
     },
   ],
@@ -442,7 +490,6 @@ const resumeData: ResumeData = {
       category: "Programming & Tools",
       skills: [
         { name: "Python", percentage: 95, color: "#3776AB" },
-        { name: "R", percentage: 85, color: "#276DC3" },
         { name: "AWS", percentage: 80, color: "#FF9900" },
         { name: "SQL", percentage: 75, color: "#4479A1" },
         { name: "C/C++", percentage: 70, color: "#00599C" },

@@ -26,11 +26,11 @@ export default function Footer() {
             <a href="#volunteer" className="text-gray-300 hover:text-white transition-colors whitespace-nowrap">
               Volunteer
             </a>
+            <a href="#publications" className="text-gray-300 hover:text-white transition-colors whitespace-nowrap">
+              Publications
+            </a>
             <a href="#achievements" className="text-gray-300 hover:text-white transition-colors whitespace-nowrap">
               Achievements
-            </a>
-            <a href="#contact" className="text-gray-300 hover:text-white transition-colors whitespace-nowrap">
-              Contact
             </a>
           </div>
         </div>
