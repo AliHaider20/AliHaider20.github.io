@@ -53,28 +53,6 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Focus Areas Section */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-        >
-          <h3 className="text-2xl font-bold text-primary mb-6">Areas of Expertise</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {resumeData.focusAreas.map((area, index) => (
-              <motion.span
-                key={index}
-                className="px-6 py-3 bg-slate-800 text-white border-2 border-slate-700 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-slate-700"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4, delay: 0.9 + 0.1 * index }}
-              >
-                {area}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

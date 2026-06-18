@@ -72,7 +72,6 @@ export interface ResumeData {
   volunteerExperiences: VolunteerExperience[];
   achievements: Achievement[];
   technicalSkills: TechnicalSkill[];
-  focusAreas: string[];
   skillCategories: SkillCategory[];
 }
 
@@ -366,6 +365,7 @@ const resumeData: ResumeData = {
         "Computer Vision",
         "Natural Language Processing",
         "Large Language Models",
+        "LLM inference optimization",
         "Generative AI",
         "Reinforcement Learning",
         "Time Series Analysis",
@@ -378,8 +378,6 @@ const resumeData: ResumeData = {
       category: "ML Frameworks & Libraries",
       skills: [
         "PyTorch",
-        "TensorFlow",
-        "Keras",
         "Scikit-learn",
         "Hugging Face",
         "OpenCV",
@@ -392,7 +390,7 @@ const resumeData: ResumeData = {
         "NumPy",
         "Matplotlib",
         "Seaborn",
-        "Plotly",
+        "Plotly"
       ],
     },
     {
@@ -413,13 +411,8 @@ const resumeData: ResumeData = {
         "PostgreSQL",
         "MySQL",
         "MongoDB",
-        "Redis",
         "Apache Cassandra",
         "Elasticsearch",
-        "ETL Pipelines",
-        "Data Warehousing",
-        "Apache Kafka",
-        "Snowflake",
       ],
     },
     {
@@ -440,6 +433,7 @@ const resumeData: ResumeData = {
         "DeepSpeed",
         "Gradio",
         "Streamlit",
+        "VLLM"
       ],
     },
   ],
@@ -461,6 +455,7 @@ const resumeData: ResumeData = {
         "Langchain",
         "FAISS",
         "MLflow",
+        "VLLM"
       ],
     },
     {
@@ -483,13 +478,6 @@ const resumeData: ResumeData = {
         "Hugging Face",
       ],
     },
-  ],
-  focusAreas: [
-    "Machine Learning",
-    "Computer Vision",
-    "Generative AI",
-    "NLP",
-    "Data Science",
   ],
   volunteerExperiences: [
     {
