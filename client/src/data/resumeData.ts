@@ -176,6 +176,34 @@ const resumeData: ResumeData = {
   ],
   projects: [
     {
+      title: "YouTube Video Content Search",
+      date: "September 2026",
+      category: "Generative AI | Semantic Search",
+      description:
+        "Engineered a scalable semantic video retrieval system using Jina CLIP embeddings and FAISS, enabling natural-language search across 1-hour videos with clip retrieval in 10 seconds.",
+      details: [
+        "Built an end-to-end video indexing pipeline with FFmpeg, yt-dlp, and Whisper",
+        "Integrated JINA CLIP embeddings with FAISS vector search for efficient multimodal video discovery",
+        "Developed a Gradio interface for seamless natural-language video search and clip retrieval",
+      ],
+      technologies: ["JINA CLIP", "FAISS", "FFmpeg", "Whisper", "Gradio", "Vector Search", "Multimodal AI"],
+      githubLink: "https://github.com/AliHaider20/video-content-search",
+    },
+    {
+      title: "Dedup-RAG MCP Server",
+      date: "July 2026",
+      category: "Generative AI | RAG Systems",
+      description:
+        "Built a local-first RAG pipeline as an MCP server, integrating FAISS search and SQLite metadata storage for Claude, with a two-layer deduplication system.",
+      details: [
+        "Built a local-first RAG pipeline as an MCP server, integrating FAISS search and SQLite for metadata storage",
+        "Designed a two-layer deduplication system that cut 34% of chunks from re-embedding and reduced context by 10%",
+        "Optimized chunk-level and context-level deduplication to significantly reduce LLM inference costs",
+      ],
+      technologies: ["MCP", "FAISS", "SQLite", "LLM", "RAG", "Python"],
+      githubLink: "https://github.com/AliHaider20/MCP-VectorDB-context-manager",
+    },
+    {
       title: "Credit Card Assistant Agent",
       date: "February 2025",
       category: "Generative AI | Agentic AI",
