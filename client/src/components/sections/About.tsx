@@ -24,16 +24,24 @@ export default function About() {
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            <p className="text-lg mb-6 leading-relaxed text-gray-800 dark:text-gray-200">
-              I'm an AI Engineer with a strong background in machine learning, computer vision, and generative AI.
-              Currently completing my Master's in Artificial Intelligence at Yeshiva University, I combine theoretical
-              knowledge with practical implementation across various domains.
-            </p>
-            <p className="text-lg mb-6 leading-relaxed text-gray-800 dark:text-gray-200">
-              My expertise includes developing machine learning models, computer vision solutions, and natural
-              language processing applications. I've worked on projects spanning from medical image analysis
-              to language models and predictive analytics.
-            </p>
+            {resumeData.about.map((paragraph) => (
+              <p key={paragraph} className="text-lg mb-5 leading-relaxed text-gray-800 dark:text-gray-200">
+                {paragraph}
+              </p>
+            ))}
+
+            <h3 className="text-xl font-semibold mt-8 mb-4 text-primary dark:text-gray-100">What I like to work on</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              {resumeData.interests.map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-gray-200 dark:border-slate-600 shadow-sm"
+                >
+                  <h4 className="font-semibold text-secondary mb-1">{item.title}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
 
             <div className="mb-6">
               <h3 className="text-xl font-semibold mb-4 text-primary dark:text-gray-100">Education</h3>
@@ -65,9 +73,9 @@ export default function About() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { value: "4+", label: "Years in AI" },
-                  { value: "10+", label: "Projects Built" },
-                  { value: "2", label: "Publications" },
-                  { value: "3+", label: "Companies" },
+                  { value: String(resumeData.projects.length), label: "Projects Built" },
+                  { value: String(resumeData.publications.length), label: "Publications" },
+                  { value: String(resumeData.experience.length), label: "Companies" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center bg-slate-50 dark:bg-slate-700 rounded-lg p-3">
                     <p className="text-2xl font-bold text-secondary">{stat.value}</p>

@@ -80,6 +80,8 @@ export interface ResumeData {
   name: string;
   title: string;
   subtitle: string;
+  about: string[];
+  interests: { title: string; text: string }[];
   email: string;
   location: string;
   linkedInUrl: string;
@@ -101,7 +103,18 @@ const resumeData: ResumeData = {
   name: "Haider Ali",
   title: "Artificial Intelligence Engineer",
   subtitle:
-    "Specialized in Machine Learning, Computer Vision, and Generative AI applications",
+    "I build practical AI: LLM agents and RAG systems, computer vision, and machine learning that solves real problems.",
+  about: [
+    "I'm an AI engineer who likes turning messy, real-world problems into working systems. The model is only half the job; the data, the evaluation, and how it gets used decide whether it actually helps anyone.",
+    "Lately most of my time goes into generative AI: building RAG pipelines, agents that call tools, and fine-tuning language models for specific domains. I came up through computer vision and medical imaging, and I still enjoy the research side, with two published papers so far.",
+    "Outside of work I volunteer my skills on projects with a purpose, like mapping seagrass for ocean conservation and cutting fruit waste, and I enjoy mentoring teammates along the way.",
+  ],
+  interests: [
+    { title: "Generative AI & agents", text: "RAG systems, tool-calling agents, and fine-tuning LLMs with QLoRA and SFT." },
+    { title: "Computer vision", text: "Segmentation, medical imaging, and synthetic data with diffusion models." },
+    { title: "Applied ML for impact", text: "Predictive models for healthcare, conservation, and food waste." },
+    { title: "Research & mentoring", text: "Publishing results and helping other engineers ship their first models." },
+  ],
   email: "Hali4@mail.yu.edu",
   location: "Fairfax, VA - 22032",
   linkedInUrl: "https://www.linkedin.com/in/haiderzali/",

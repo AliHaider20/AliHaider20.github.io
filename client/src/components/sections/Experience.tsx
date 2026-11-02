@@ -2,6 +2,45 @@ import { motion } from "framer-motion";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import resumeData from "@/data/resumeData";
 
+type Role = {
+  organization: string;
+  position: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  description: string[];
+  type: "Industry" | "Volunteer";
+};
+
+const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+function toTime(date: string): number {
+  if (/present/i.test(date)) return Date.now();
+  const [month, year] = date.trim().split(/\s+/);
+  return new Date(Number(year), MONTHS.indexOf(month.slice(0, 3).toLowerCase())).getTime();
+}
+
+const roles: Role[] = [
+  ...resumeData.experience.map((e) => ({
+    organization: e.company,
+    position: e.position,
+    location: e.location,
+    startDate: e.startDate,
+    endDate: e.endDate,
+    description: e.description,
+    type: "Industry" as const,
+  })),
+  ...resumeData.volunteerExperiences.map((v) => ({
+    organization: v.organization,
+    position: v.position,
+    location: v.location,
+    startDate: v.startDate,
+    endDate: v.endDate,
+    description: v.description,
+    type: "Volunteer" as const,
+  })),
+].sort((a, b) => toTime(b.endDate) - toTime(a.endDate) || toTime(b.startDate) - toTime(a.startDate));
+
 export default function Experience() {
   const [ref, isVisible] = useIntersectionObserver<HTMLDivElement>();
 
@@ -14,7 +53,7 @@ export default function Experience() {
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Work Experience
+          Experience
         </motion.h2>
 
         <div className="relative">
@@ -22,9 +61,9 @@ export default function Experience() {
           <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-secondary/30 dark:bg-secondary/20" />
 
           <div className="space-y-12">
-            {resumeData.experience.map((exp, index) => (
+            {roles.map((exp, index) => (
               <motion.div
-                key={index}
+                key={`${exp.organization}-${exp.startDate}`}
                 className="relative pl-16"
                 initial={{ opacity: 0, x: -20 }}
                 animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
@@ -36,13 +75,22 @@ export default function Experience() {
                 <div className="bg-white dark:bg-slate-700 rounded-xl shadow-md border border-gray-100 dark:border-slate-600 p-6 hover:shadow-lg transition-shadow duration-300">
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-2 mb-4">
                     <div>
-                      <h3 className="text-xl font-bold text-primary dark:text-gray-100">{exp.company}</h3>
+                      <h3 className="text-xl font-bold text-primary dark:text-gray-100">{exp.organization}</h3>
                       <p className="text-secondary font-medium">{exp.position}</p>
                       <p className="text-sm text-gray-500 dark:text-gray-400">{exp.location}</p>
                     </div>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent/10 text-accent border border-accent/20 flex-shrink-0">
-                      {exp.startDate} – {exp.endDate}
-                    </span>
+                    <div className="flex flex-row md:flex-col items-center md:items-end gap-2 flex-shrink-0">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent/10 text-accent border border-accent/20">
+                        {exp.startDate} – {exp.endDate}
+                      </span>
+                      <span
+                        className={`text-xs font-semibold uppercase tracking-wide ${
+                          exp.type === "Industry" ? "text-secondary" : "text-gray-500 dark:text-gray-400"
+                        }`}
+                      >
+                        {exp.type}
+                      </span>
+                    </div>
                   </div>
                   <ul className="space-y-2.5 text-gray-700 dark:text-gray-300 text-sm">
                     {exp.description.map((item, i) => (

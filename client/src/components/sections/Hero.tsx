@@ -15,7 +15,7 @@ const metrics = [
   { value: "4+", label: "Years in AI" },
   { value: String(resumeData.projects.length), label: "Projects" },
   { value: String(resumeData.publications.length), label: "Publications" },
-  { value: String(resumeData.volunteerExperiences.length), label: "Volunteer Orgs" },
+  { value: String(resumeData.experience.length + resumeData.volunteerExperiences.length), label: "Roles" },
 ];
 
 export default function Hero() {

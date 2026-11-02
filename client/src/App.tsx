@@ -6,7 +6,6 @@ import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Publications from "@/components/sections/Publications";
-import Volunteer from "@/components/sections/Volunteer";
 import Achievements from "@/components/sections/Achievements";
 
 export default function App() {
@@ -22,7 +21,6 @@ export default function App() {
           <Projects />
           <Skills />
           <Publications />
-          <Volunteer />
           <Achievements />
         </main>
         <Footer />
