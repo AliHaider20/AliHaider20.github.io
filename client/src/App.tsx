@@ -1,23 +1,32 @@
-import { Switch, Route } from "wouter";
-import Home from "@/pages/Home";
-import NotFound from "@/pages/not-found";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Experience from "@/components/sections/Experience";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
+import Publications from "@/components/sections/Publications";
+import Volunteer from "@/components/sections/Volunteer";
+import Achievements from "@/components/sections/Achievements";
 
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
-
-function App() {
+export default function App() {
   return (
     <>
       <div className="code-pattern" />
-      <Router />
+      <div className="font-sans min-h-screen">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Publications />
+          <Volunteer />
+          <Achievements />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }
-
-export default App;

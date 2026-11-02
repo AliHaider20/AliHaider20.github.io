@@ -16,9 +16,13 @@ export interface Experience {
   description: string[];
 }
 
+export const PROJECT_GROUPS = ["Generative AI", "Machine Learning", "Computer Vision"] as const;
+export type ProjectGroup = (typeof PROJECT_GROUPS)[number];
+
 export interface Project {
   title: string;
   date: string;
+  group: ProjectGroup;
   category: string;
   description: string;
   details: string[];
@@ -175,11 +179,11 @@ const resumeData: ResumeData = {
     },
   ],
   projects: [
-    // GENERATIVE AI PROJECTS
     {
       title: "YouTube Video Content Search",
       date: "September 2026",
-      category: "Generative AI | Semantic Search",
+      group: "Generative AI",
+      category: "Semantic Search",
       description:
         "Engineered a scalable semantic video retrieval system using Jina CLIP embeddings and FAISS, enabling natural-language search across 1-hour videos with clip retrieval in 10 seconds.",
       details: [
@@ -193,7 +197,8 @@ const resumeData: ResumeData = {
     {
       title: "Dedup-RAG MCP Server",
       date: "July 2026",
-      category: "Generative AI | RAG Systems",
+      group: "Generative AI",
+      category: "RAG Systems",
       description:
         "Built a local-first RAG pipeline as an MCP server, integrating FAISS search and SQLite metadata storage for Claude, with a two-layer deduplication system.",
       details: [
@@ -207,7 +212,8 @@ const resumeData: ResumeData = {
     {
       title: "Credit Card Assistant Agent",
       date: "February 2025",
-      category: "Generative AI | Agentic AI",
+      group: "Generative AI",
+      category: "Agentic AI",
       description:
         "Agentic AI chatbot using Semantic Kernel with tool-calling for card operations and document Q&A, featuring a fully grounded RAG pipeline.",
       details: [
@@ -221,7 +227,8 @@ const resumeData: ResumeData = {
     {
       title: "Email Promotions AI Agent",
       date: "May 2025 - Present",
-      category: "Generative AI | Agentic AI",
+      group: "Generative AI",
+      category: "Agentic AI",
       description:
         "Autonomous AI agent that monitors email inbox for promotional content and intelligently notifies users about relevant deals based on their preferences.",
       details: [
@@ -235,9 +242,10 @@ const resumeData: ResumeData = {
     {
       title: "KatzBot (An LLM based Chatbot)",
       date: "December 2023",
-      category: "Generative AI | Large Language Models",
+      group: "Generative AI",
+      category: "Large Language Models",
       description:
-        "Pre-trained and fine-tuned a custom SLM for university-specific Q&A, generating 60K synthetic dataset and achieving 70% RougeL score. Published as peer-reviewed paper.",
+        "Built and fine-tuned LLMs for university-specific Q&A on a synthetic question-answer dataset, reaching a 70% RougeL score. Published as a peer-reviewed paper.",
       details: [
         "Generated 6000 question-answer pairs using data generation pipeline including Apache Cassandra, Astra DB, Langchain and ChatGPT API from PDFs. Applied sanity check to ensure data quality",
         "Applied different LLMs including Microsoft's Phi 1.5B which achieved 30% RougeL score, and Mistral 7B achieved 70% RougeL score",
@@ -247,11 +255,11 @@ const resumeData: ResumeData = {
       githubLink: "https://github.com/AliHaider20/KatzBot-LLM",
     },
 
-    // MACHINE LEARNING PROJECTS
     {
       title: "Medical Expense Prediction",
       date: "November 2022",
-      category: "Machine Learning | Healthcare Analytics",
+      group: "Machine Learning",
+      category: "Healthcare Analytics",
       description:
         "Predictive analytics project to forecast medical expenses based on patient demographics and health factors, helping optimize healthcare resource allocation.",
       details: [
@@ -266,7 +274,8 @@ const resumeData: ResumeData = {
     {
       title: "Income VS Crime in NYC",
       date: "October 2022",
-      category: "Machine Learning | Data Analysis",
+      group: "Machine Learning",
+      category: "Data Analysis",
       description:
         "Explored the relationship between income levels and crime rates in New York City, revealing significant correlations between socioeconomic factors and crime statistics.",
       details: [
@@ -279,7 +288,8 @@ const resumeData: ResumeData = {
     {
       title: "Food Recommendation System",
       date: "June 2022",
-      category: "Machine Learning | Recommender Systems",
+      group: "Machine Learning",
+      category: "Recommender Systems",
       description:
         "Created a food recommendation system to increase restaurant revenue through personalized suggestions based on user preferences and consumption patterns.",
       details: [
@@ -288,12 +298,13 @@ const resumeData: ResumeData = {
         "Applied GridSearchCV on Random Forest, SVM, KNN and base models. Built an ensemble model achieving 100% accuracy",
       ],
       technologies: ["Random Forest", "SVM", "KNN", "Ensemble Learning", "SMOTE"],
-      githubLink: "https://github.com/AliHaider20/Food-Recommendation-System",
+      githubLink: "",
     },
     {
       title: "Optimizing Stewart Platform",
       date: "January 2023",
-      category: "Machine Learning | Robotics",
+      group: "Machine Learning",
+      category: "Robotics",
       description:
         "Optimized the Stewart platform, a 6-DOF parallel robot, through mathematical modeling and numerical methods to enhance precision and performance.",
       details: [
@@ -305,11 +316,11 @@ const resumeData: ResumeData = {
       githubLink: "https://github.com/AliHaider20/Stewart-Platform",
     },
 
-    // COMPUTER VISION PROJECTS
     {
       title: "Cow Teat Keratosis Level Identification",
       date: "March 2023",
-      category: "Computer Vision | Generative AI",
+      group: "Computer Vision",
+      category: "Generative AI",
       description:
         "Developed an automated system to identify keratosis levels in cow teats using computer vision techniques, enhancing dairy farm health monitoring.",
       details: [
@@ -323,7 +334,8 @@ const resumeData: ResumeData = {
     {
       title: "Human Faces Generation",
       date: "July 2022",
-      category: "Computer Vision | Generative AI",
+      group: "Computer Vision",
+      category: "Generative AI",
       description:
         "Developed a deep convolutional generative adversarial network (DCGAN) to generate realistic human faces using advanced deep learning techniques.",
       details: [
@@ -336,7 +348,8 @@ const resumeData: ResumeData = {
     {
       title: "Lung Image Segmentation",
       date: "December 2023",
-      category: "Computer Vision | Medical Imaging",
+      group: "Computer Vision",
+      category: "Medical Imaging",
       description:
         "Developed an advanced lung segmentation system using deep learning and image processing techniques for accurate medical image analysis.",
       details: [
@@ -350,7 +363,8 @@ const resumeData: ResumeData = {
     {
       title: "Facial Recognition using SVD",
       date: "August 2022",
-      category: "Computer Vision | Linear Algebra",
+      group: "Computer Vision",
+      category: "Linear Algebra",
       description:
         "Implemented a facial recognition system using Singular Value Decomposition (SVD) for dimensionality reduction and feature extraction.",
       details: [
@@ -358,7 +372,7 @@ const resumeData: ResumeData = {
         "Compared SVD and base model (comparing single faces with others) accuracies. SVD performance is lower until the 50 eigenvalues are taken into consideration, then both models perform equally",
       ],
       technologies: ["SVD", "Linear Algebra", "Computer Vision", "Face Recognition"],
-      githubLink: "https://github.com/AliHaider20/Facial-Recognition-SVD",
+      githubLink: "",
     },
   ],
   achievements: [

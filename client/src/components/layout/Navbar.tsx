@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 
 const navLinks = [
@@ -38,9 +37,9 @@ export default function Navbar() {
   return (
     <header className="fixed w-full bg-white dark:bg-slate-900 bg-opacity-95 dark:bg-opacity-95 shadow-sm dark:shadow-slate-800 z-50 transition-colors duration-300">
       <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold text-primary dark:text-gray-100">
+        <a href="#hero" className="text-2xl font-bold text-primary dark:text-gray-100">
           Haider Ali
-        </Link>
+        </a>
 
         <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (

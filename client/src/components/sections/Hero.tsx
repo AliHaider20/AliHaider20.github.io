@@ -2,7 +2,7 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import resumeData from "@/data/resumeData";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import profilePhoto from "@assets/headshot.jpeg";
+import profilePhoto from "@/assets/headshot.jpeg";
 
 const typewriterTitles = [
   "Artificial Intelligence Engineer",
@@ -13,9 +13,9 @@ const typewriterTitles = [
 
 const metrics = [
   { value: "4+", label: "Years in AI" },
-  { value: "10+", label: "Projects" },
-  { value: "2", label: "Publications" },
-  { value: "3", label: "Volunteer Orgs" },
+  { value: String(resumeData.projects.length), label: "Projects" },
+  { value: String(resumeData.publications.length), label: "Publications" },
+  { value: String(resumeData.volunteerExperiences.length), label: "Volunteer Orgs" },
 ];
 
 export default function Hero() {

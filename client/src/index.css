@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme colors as HSL triplets (consumed by tailwind.config.ts) */
+:root {
+  --foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --primary: 0 0% 18%;
+  --secondary: 211 100% 50%;
+  --accent: 175 100% 39%;
+}
+
+.dark {
+  --foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --primary: 214 32% 91%;
+  --secondary: 213 94% 68%;
+  --accent: 173 80% 40%;
+}
+
 /* Hide scrollbars for horizontal scrolling sections */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -86,11 +103,6 @@
     radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
   background-size: 150px 30px, 150px 30px, 800px 800px, 600px 600px;
-}
-
-/* Dark mode CSS variable overrides */
-.dark .text-primary {
-  color: #E2E8F0;
 }
 
 @layer base {

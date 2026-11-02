@@ -1,9 +1,8 @@
-import { Link } from "wouter";
 import resumeData from "@/data/resumeData";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-12 px-6">
+    <footer className="bg-slate-900 text-white py-12 px-6">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
