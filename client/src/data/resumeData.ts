@@ -175,6 +175,7 @@ const resumeData: ResumeData = {
     },
   ],
   projects: [
+    // GENERATIVE AI PROJECTS
     {
       title: "YouTube Video Content Search",
       date: "September 2026",
@@ -232,34 +233,83 @@ const resumeData: ResumeData = {
       githubLink: "https://github.com/AliHaider20/Email-promotions-Agent",
     },
     {
-      title: "University Chatbot using LLM (KatzBot)",
+      title: "KatzBot (An LLM based Chatbot)",
       date: "December 2023",
       category: "Generative AI | Large Language Models",
       description:
-        "Pre-trained and fine-tuned a custom SLM for university-specific Q&A, generating a 60K synthetic dataset and achieving 70% RougeL score. Published as a peer-reviewed paper.",
+        "Pre-trained and fine-tuned a custom SLM for university-specific Q&A, generating 60K synthetic dataset and achieving 70% RougeL score. Published as peer-reviewed paper.",
       details: [
-        "Scraped and synthetically generated 60K question-answer pairs using the NLPAug tool, BERT, and GPT models",
-        "Fine-tuned Phi 1.5B, Flan T5, GPT-2, and Mistral models using FSDP, QLoRA, SFT, and GRPO achieving 70% RougeL score",
-        "Instruction trained and deployed a custom SLM on local server using Streamlit and FastAPI",
+        "Generated 6000 question-answer pairs using data generation pipeline including Apache Cassandra, Astra DB, Langchain and ChatGPT API from PDFs. Applied sanity check to ensure data quality",
+        "Applied different LLMs including Microsoft's Phi 1.5B which achieved 30% RougeL score, and Mistral 7B achieved 70% RougeL score",
+        "Engineered, pre-trained, instruction-tuned, and served a custom SLM on AWS ECS, leveraging vLLM to optimize inference",
       ],
-      technologies: [
-        "LLM",
-        "QLoRA",
-        "FSDP",
-        "SFT",
-        "GRPO",
-        "RAG",
-        "FAISS",
-        "Mistral",
-        "FastAPI",
-        "Streamlit",
-      ],
+      technologies: ["LLM", "QLoRA", "FSDP", "SFT", "GRPO", "RAG", "FAISS", "Mistral", "FastAPI", "Streamlit"],
       githubLink: "https://github.com/AliHaider20/KatzBot-LLM",
     },
+
+    // MACHINE LEARNING PROJECTS
     {
-      title: "Cow TEAT Keratosis Level Identification",
+      title: "Medical Expense Prediction",
+      date: "November 2022",
+      category: "Machine Learning | Healthcare Analytics",
+      description:
+        "Predictive analytics project to forecast medical expenses based on patient demographics and health factors, helping optimize healthcare resource allocation.",
+      details: [
+        "Applied Bivariate analysis and found people with ages smaller than equal to 19 have most of the charges below 5000 which contributes approx. 6% of the dataset",
+        "Applied Bivariate analysis and found people age smaller than equal to 19 contribute 7% of the total expense and smoking; most of them are non-smokers",
+        "People with BMI greater than 30 and smoking have higher medical expenses",
+        "Selected relevant features using the forward selection process using Linear Regression and found Gradient Boosting to be the best with a 90% R2 score",
+      ],
+      technologies: ["XGBoost", "Linear Regression", "Feature Selection", "Healthcare Analytics"],
+      githubLink: "https://github.com/AliHaider20/Medical-Expenses-Prediction",
+    },
+    {
+      title: "Income VS Crime in NYC",
+      date: "October 2022",
+      category: "Machine Learning | Data Analysis",
+      description:
+        "Explored the relationship between income levels and crime rates in New York City, revealing significant correlations between socioeconomic factors and crime statistics.",
+      details: [
+        "Scraped 20000 data points using API programming, created SQL database, fetched data in Python from SQL using Psycopg2, and analyzed it",
+        "Combined both datasets and found that crime is highly 70% positively correlated with income",
+      ],
+      technologies: ["Python", "SQL", "API", "Data Mining", "Statistical Analysis"],
+      githubLink: "https://github.com/AliHaider20/Crime-and-Income-in-NYC",
+    },
+    {
+      title: "Food Recommendation System",
+      date: "June 2022",
+      category: "Machine Learning | Recommender Systems",
+      description:
+        "Created a food recommendation system to increase restaurant revenue through personalized suggestions based on user preferences and consumption patterns.",
+      details: [
+        "Applied data engineering, and generated dataset using SMOTE to balance the dataset",
+        "Applied analysis based on food category and content and found people like turkey and fish food the most and thanksgiving is the favorite occasion",
+        "Applied GridSearchCV on Random Forest, SVM, KNN and base models. Built an ensemble model achieving 100% accuracy",
+      ],
+      technologies: ["Random Forest", "SVM", "KNN", "Ensemble Learning", "SMOTE"],
+      githubLink: "https://github.com/AliHaider20/Food-Recommendation-System",
+    },
+    {
+      title: "Optimizing Stewart Platform",
+      date: "January 2023",
+      category: "Machine Learning | Robotics",
+      description:
+        "Optimized the Stewart platform, a 6-DOF parallel robot, through mathematical modeling and numerical methods to enhance precision and performance.",
+      details: [
+        "Find the position of the Stewart platform using function and tested it using the range of values between -pi/4 and pi/4 and visualizing theta vs f(theta)",
+        "Found roots of the solution using Newton and Bisection methods where Newton takes 3x less time to converge",
+        "Found the position of the platform using 3 strut lengths",
+      ],
+      technologies: ["Robotics", "Numerical Methods", "Mathematical Modeling", "Optimization"],
+      githubLink: "https://github.com/AliHaider20/Stewart-Platform",
+    },
+
+    // COMPUTER VISION PROJECTS
+    {
+      title: "Cow Teat Keratosis Level Identification",
       date: "March 2023",
-      category: "Generative AI | Computer Vision",
+      category: "Computer Vision | Generative AI",
       description:
         "Developed an automated system to identify keratosis levels in cow teats using computer vision techniques, enhancing dairy farm health monitoring.",
       details: [
@@ -267,20 +317,13 @@ const resumeData: ResumeData = {
         "Generated 500 images using Stable Diffusion to balance the dataset by upsampling classes 1, 3, and 4 classes which improved base models by 10%",
         "Published research paper comparing the performance of SOTA models (Meta-models, ResNets, VisionTransformer, GoogleNet, and Inception) on balanced and imbalanced datasets, achieving 85% accuracy using GoogleNet on balanced datasets",
       ],
-      technologies: [
-        "Computer Vision",
-        "CNN",
-        "Stable Diffusion",
-        "GoogleNet",
-        "Feature Extraction",
-      ],
-      githubLink:
-        "https://github.com/AliHaider20/Cow-Teat-Keratosis-Aug-Stable-Diffusion",
+      technologies: ["Computer Vision", "CNN", "Stable Diffusion", "GoogleNet", "Feature Extraction"],
+      githubLink: "https://github.com/AliHaider20/Cow-Teat-Keratosis-Aug-Stable-Diffusion",
     },
     {
       title: "Human Faces Generation",
       date: "July 2022",
-      category: "Generative AI | Computer Vision",
+      category: "Computer Vision | Generative AI",
       description:
         "Developed a deep convolutional generative adversarial network (DCGAN) to generate realistic human faces using advanced deep learning techniques.",
       details: [
@@ -301,14 +344,7 @@ const resumeData: ResumeData = {
         "Developed a 6-layered CNN for lung segmentation, reaching an 80% IOU score, just 5% below DeepLabV3 model and 2% below UNet",
         "Employed MLflow for model tracking and utilized PyTorch Lightning for efficient code development and deployment",
       ],
-      technologies: [
-        "CNN",
-        "Transformers",
-        "PyTorch",
-        "Image Segmentation",
-        "MLflow",
-        "Medical Imaging",
-      ],
+      technologies: ["CNN", "Transformers", "PyTorch", "Image Segmentation", "MLflow", "Medical Imaging"],
       githubLink: "https://github.com/AliHaider20/Lung-segmentation",
     },
     {
@@ -321,91 +357,8 @@ const resumeData: ResumeData = {
         "Standardized faces dataset using the mean face",
         "Compared SVD and base model (comparing single faces with others) accuracies. SVD performance is lower until the 50 eigenvalues are taken into consideration, then both models perform equally",
       ],
-      technologies: [
-        "SVD",
-        "Linear Algebra",
-        "Computer Vision",
-        "Face Recognition",
-      ],
-      githubLink: "",
-    },
-    {
-      title: "Medical Expense Prediction",
-      date: "November 2022",
-      category: "Data Analysis | Healthcare",
-      description:
-        "Predictive analytics project to forecast medical expenses based on patient demographics and health factors, helping optimize healthcare resource allocation.",
-      details: [
-        "Applied Bivariate analysis and found people with ages smaller than equal to 19 have most of the charges below 5000 which contributes approx. 6% of the dataset",
-        "Applied Bivariate analysis and found people age smaller than equal to 19 contribute 7% of the total expense and smoking; most of them are non-smokers",
-        "People with BMI greater than 30 and smoking have higher medical expenses",
-        "Selected relevant features using the forward selection process using Linear Regression and found Gradient Boosting to be the best with a 90% R2 score",
-      ],
-      technologies: [
-        "XGBoost",
-        "Linear Regression",
-        "Feature Selection",
-        "Healthcare Analytics",
-      ],
-      githubLink: "https://github.com/AliHaider20/Medical-Expenses-Prediction",
-    },
-    {
-      title: "Income VS Crime in NYC",
-      date: "October 2022",
-      category: "Data Analysis | Social Science",
-      description:
-        "Explored the relationship between income levels and crime rates in New York City, revealing significant correlations between socioeconomic factors and crime statistics.",
-      details: [
-        "Scraped 20000 data points using API programming, created SQL database, fetched data in Python from SQL using Psycopg2, and analyzed it",
-        "Combined both datasets and found that crime is highly 70% positively correlated with income",
-      ],
-      technologies: [
-        "Python",
-        "SQL",
-        "API",
-        "Data Mining",
-        "Statistical Analysis",
-      ],
-      githubLink: "https://github.com/AliHaider20/Crime-and-Income-in-NYC",
-    },
-    {
-      title: "Food Recommendation System",
-      date: "June 2022",
-      category: "Machine Learning | Recommender Systems",
-      description:
-        "Created a food recommendation system to increase restaurant revenue through personalized suggestions based on user preferences and consumption patterns.",
-      details: [
-        "Applied data engineering, and generated dataset using SMOTE to balance the dataset",
-        "Applied analysis based on food category and content and found people like turkey and fish food the most and thanksgiving is the favorite occasion",
-        "Applied GridSearchCV on Random Forest, SVM, KNN and base models. Built an ensemble model achieving 100% accuracy",
-      ],
-      technologies: [
-        "Random Forest",
-        "SVM",
-        "KNN",
-        "Ensemble Learning",
-        "SMOTE",
-      ],
-      githubLink: "",
-    },
-    {
-      title: "Optimizing Stewart Platform",
-      date: "January 2023",
-      category: "Robotics | Optimization",
-      description:
-        "Optimized the Stewart platform, a 6-DOF parallel robot, through mathematical modeling and numerical methods to enhance precision and performance.",
-      details: [
-        "Find the position of the Stewart platform using function and tested it using the range of values between -pi/4 and pi/4 and visualizing theta vs f(theta)",
-        "Found roots of the solution using Newton and Bisection methods where Newton takes 3x less time to converge",
-        "Found the position of the platform using 3 strut lengths",
-      ],
-      technologies: [
-        "Robotics",
-        "Numerical Methods",
-        "Mathematical Modeling",
-        "Optimization",
-      ],
-      githubLink: "https://github.com/AliHaider20/Stewart-Platform",
+      technologies: ["SVD", "Linear Algebra", "Computer Vision", "Face Recognition"],
+      githubLink: "https://github.com/AliHaider20/Facial-Recognition-SVD",
     },
   ],
   achievements: [
